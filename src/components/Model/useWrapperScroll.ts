@@ -10,15 +10,6 @@ export default function useWrapperScroll() {
   const scrollYProgress = useMotionValue(0)
 
   useEffect(() => {
-    scrollY.onChange(scrollY => {
-      console.log({ scrollY })
-    })
-    scrollYProgress.onChange(scrollYProgress => {
-      console.log({ scrollYProgress })
-    })
-  }, [scrollY, scrollYProgress])
-
-  useEffect(() => {
     if (wrapperRef.current) {
       const updateScrollValue = () => {
         if (wrapperRef.current) {
