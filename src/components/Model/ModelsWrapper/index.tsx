@@ -1,6 +1,6 @@
 import React, { useCallback, useRef, useState } from 'react'
 
-import { CarModel } from '../ModelsContext'
+import ModelsContext, { CarModel } from '../ModelsContext'
 
 import { Container } from './styles'
 
@@ -26,7 +26,19 @@ const ModelsWrapper: React.FC = ({ children }) => {
     [registeredModels]
   )
 
-  return <Container ref={wrapperRef}>{children}</Container>
+  return (
+    <ModelsContext.Provider
+      value={{
+        wrapperRef,
+        registeredModels,
+        registerModel,
+        unregisterModel,
+        getModelByName
+      }}
+    >
+      <Container ref={wrapperRef}>{children}</Container>
+    </ModelsContext.Provider>
+  )
 }
 
 export default ModelsWrapper
