@@ -45,8 +45,11 @@ const ModelOverlay: React.FC<Props> = ({ model, children }) => {
     [-0.42, -0.05, 0.05, 0.42],
     [0, 1, 1, 0]
   )
+  const pointerEvents = useTransform(opacity, value =>
+    value > 0 ? 'auto' : 'none'
+  )
 
-  return <Container style={{ opacity }}>{children}</Container>
+  return <Container style={{ opacity, pointerEvents }}>{children}</Container>
 }
 
 export default ModelOverlay
