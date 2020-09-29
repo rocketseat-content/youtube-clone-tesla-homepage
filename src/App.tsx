@@ -1,7 +1,17 @@
 import React from 'react'
 
+import Page from './components/Page'
+
+import { GlobalStyles } from './styles/GlobalStyles'
+
 function App() {
-  return <h1>Rocketseat</h1>
+  return (
+    <>
+      <Page />
+
+      <GlobalStyles />
+    </>
+  )
 }
 
 export default App
